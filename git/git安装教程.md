@@ -120,4 +120,5 @@ https://registry.npmmirror.com/binary.html?path=git-for-windows/
 1. 最后点击install安装
 
     ![Img](./FILES/git安装教程.md/48f67e0230054f2ba6bdf85fc9ea6db4.png)
+    
     安装成功 ✌️
