@@ -1757,7 +1757,37 @@ public static void main(String[] args) {
 
 请你设计一个Java程序将这个数组中的元素按照顺序排列。
 
-
+```java
+// 冒泡排序
+private static void sort(int[] arr) {
+    for(int i = 0; i < arr.length; i++) {
+       for(int j = 0; j < arr.length - i - 1; j++) {
+           if(arr[j] > arr[j + 1]) {
+               int tmp = arr[j + 1];
+               arr[j + 1] = arr[j];
+               arr[j] = tmp;
+           }
+       }
+    }
+}
+// 优化冒泡排序
+private static void optimizeSort(int[] arr) {
+    // 最后一轮没有必要比较所以外循环减去1
+    for(int i = 0; i < arr.length - 1; i++) {
+       // 设定一个变量来判断循环是不是有没有发生交换
+       boolean flag = false;
+       for(int j = 0; j < arr.length - i - 1; j++) {
+           if(arr[j] > arr[j + 1]) {
+               int tmp = arr[j + 1];
+               arr[j + 1] = arr[j];
+               arr[j] = tmp;
+               flag = true;
+           }
+       }
+       if(!flag) break;
+    }
+}
+```
 
 ### 二分搜索算法
 
@@ -1771,7 +1801,32 @@ public static void main(String[] args) {
 ```
 
 请你设计一个Java程序实现这个功能。
+```java
+// 普通搜索
+private static int search(int[] arr, int target) {
+    for(int i = 0; i < arr.length; i++) {
+       if(arr[i] == target) return i
+    }
+    return -1
+}
+// 二分查找实现条件是数组是个有序数组才生效否则无效
+private static int optimizeSearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    while(left <= right) {
+      int mid = (left + right) / 2;
+      int i = arr[mid];
+      if(i < target) {
+        left = mid + 1     
+      }else if(i > target) {
+        right = mid - 1
+      }else {
+        return mid
+      }
+    }
+    return -1;
+}
 
+```
 
 
 ### 青蛙跳台阶问题
